@@ -1,0 +1,12 @@
+<div ngClass="wrap">
+    <h1>{{title | uppercase}}</h1>
+</div>
+
+<div ngClass="container">
+    <div id="dogs">
+        <div *ngFor="let item of dogs">
+            <img src={{item.image.url}} ngClass="zoom-img" />
+        </div>
+    </div>
+        
+</div>
