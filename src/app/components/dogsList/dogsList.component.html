@@ -1,0 +1,10 @@
+<div ngClass="container">
+    <div id="dogs">
+        <div *ngFor="let item of doggos"> 
+            <p style="display: none;">{{item.id}}</p>
+            <img src={{item.image.url}} ngClass="zoom-img"   (click)="onSelect(item)" routerLink="/home/{{item.id}}" />
+        </div>
+    </div>
+
+    <button class="btn" (click)="sendFetchMoreDogs()">Get dogs</button>
+</div>

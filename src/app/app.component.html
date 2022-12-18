@@ -1,3 +1,14 @@
-<app-first-fifteen-dogs></app-first-fifteen-dogs>
+<app-title></app-title>
 
 <router-outlet></router-outlet>
+<app-dog-info [doggy]="pes"></app-dog-info>
+
+<div ngClass="container">
+    <app-dogsList [doggos]="dogs"></app-dogsList>
+    <app-button (sendFetchMoreDogs)="moreDogs($event)"></app-button>
+    <div ngClass="footer-div">
+        <app-footer></app-footer>
+    </div>
+</div>
+
+<app-scrollToTop></app-scrollToTop>

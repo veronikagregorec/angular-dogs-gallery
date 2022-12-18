@@ -75,7 +75,6 @@ h1 {
     background: linear-gradient(45deg, var(--purple), var(--darkPink));
     background-attachment: fixed;
     margin-top: -70px;
-    padding-bottom: 50px;
     min-height: 80vh;
 }
 
@@ -139,7 +138,9 @@ h1 {
     cursor: pointer;
     object-fit: cover;
     object-position: center center;
-    margin: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: -3px;
     filter: grayscale(100%);
     animation: images 0.5s ease-in;
 }
@@ -160,6 +161,14 @@ h1 {
     filter: grayscale(0);
 }
 
+#wrapInside{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--lightPurple);
+}
+
 #lightBoxBg {
     width: 100%;
     height: 100%;
@@ -176,9 +185,6 @@ h1 {
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
-    /* display: grid;
-    align-items: start;
-    justify-items: center;  */
 }
 
 #header {
@@ -238,6 +244,17 @@ h1 {
     cursor: pointer;
     border: none;
     font-size: 18px;
+    animation: scroll 1s ease;
+}
+
+@keyframes scroll {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
 }
 
 .scroll-to-top:active {
@@ -245,24 +262,19 @@ h1 {
     color: var(--white);
 }
 
-footer {
-    transform: rotate(90deg);
-    position: fixed;
-    bottom: 140px;
-    right: -40px;
-    font-size: calc(14px + 0.18vw);
+.footer-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 0 !important;
+    width: 100%;
+    height: 70px;
+    background-color: var(--black);
+    font-size: calc(12px + 0.18vw);
     color: var(--white);
-    animation: footer 3s ease;
-}
-
-@keyframes footer {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
 }
 
 @media screen and (max-width: 1400px) {
@@ -332,13 +344,6 @@ footer {
 @media screen and (max-width: 480px) {
     #dogs {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    footer {
-        transform: rotate(0deg);
-        position: relative;
-        bottom: -30px;
-        left: 0;
     }
 
     #wrapInside {
