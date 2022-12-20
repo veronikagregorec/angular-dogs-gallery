@@ -29,10 +29,6 @@ export class DogsListComponent implements AfterViewInit{
     // );
   }
 
-  onSelect(item: any)  {
-    this.router.navigate(['/home', item.id])
-  }
-
   sendFetchMoreDogs() {
     this.sendEvent.emit(this.getDogs());
   }
