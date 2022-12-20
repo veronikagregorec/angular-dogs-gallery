@@ -27,7 +27,7 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   fetchDogsFromApi(): Observable<Dog[]> {
-    return this.http.get<Dog[]>(this.url, {headers: this.httpHeaders});
+    return this.http.get<DogInfo[]>(this.url, {headers: this.httpHeaders});
   }
 
   fetchDogInfoFromApi(): Observable<DogInfo[]> {
