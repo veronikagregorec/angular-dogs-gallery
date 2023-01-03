@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from 'src/app/service/http.service';
 
@@ -9,26 +9,23 @@ import { HttpService } from 'src/app/service/http.service';
 })
 export class DogInfoComponent implements AfterViewInit, OnInit {
 
-  pes: any
-  dogInfoId: any;
-
   constructor(private httpService: HttpService, private route: ActivatedRoute) { }
 
-  @Input() doggy: any;
-
+  doggies: any = [];
+  doggyId:any;
+  pes: any;
+  
   onfetchDogInfoFromApi(): any {
-    this.httpService.fetchDogInfoFromApi().subscribe(
-      (response) => this.doggy = response
+    this.httpService.fetchDogsFromApi().subscribe(
+      (response) => this.doggies.push(...response)
     );
   }
 
   ngOnInit() {
-    //this.dogInfoId = this.route.snapshot.paramMap.get('id');
-
     this.route.paramMap.subscribe((param) => {
-      this.dogInfoId = param.get('id');
-      // this.pes = this.httpService.fetchDogInfoFromApi
-    })
+      this.doggyId = param.get('id');
+      this.pes = this.doggies.filter((x:any)=>x.id == this.doggyId)
+    });
   }
 
   ngAfterViewInit() {

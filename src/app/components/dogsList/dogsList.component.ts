@@ -1,40 +1,28 @@
-import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { HttpService } from 'src/app/service/http.service';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-dogsList',
   templateUrl: './dogsList.component.html',
   styleUrls: ['./dogsList.component.css']
 })
-export class DogsListComponent implements AfterViewInit{
+export class DogsListComponent implements AfterViewInit {
 
-  constructor(private httpService: HttpService, private router: Router) { }
+  constructor(private httpService: HttpService) {}
 
-  @Output() sendEvent = new EventEmitter<any>();
-
-  @Input() doggos: any;
-
+  doggos: any = [];
+  
   onFetchDogsFromApi(): any {
     this.httpService.fetchDogsFromApi().subscribe(
-      (response) => this.doggos = response
+      (response) => this.doggos = [...this.doggos, ...response]
     );
   }
 
-  getDogs(): any{
-    // this.httpService.mapToDogs().subscribe(
-    //   (response) => this.doggos = response
-    //   //this.onFetchDogsFromApi();
-    // );
-  }
-
-  sendFetchMoreDogs() {
-    this.sendEvent.emit(this.getDogs());
+  getDogs() {
+    this.onFetchDogsFromApi();
   }
 
   ngAfterViewInit(): void {
     this.onFetchDogsFromApi();
-    this.getDogs();
   }
 }

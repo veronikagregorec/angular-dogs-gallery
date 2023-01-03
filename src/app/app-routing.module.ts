@@ -6,8 +6,8 @@ import { DogsListComponent } from './components/dogsList/dogsList.component';
 const routes: Routes = [
   { path: "home", component: DogsListComponent },
   { path: "home/:id", component: DogInfoComponent },
-  { path: '**', redirectTo: '/home', pathMatch: 'full'},
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({

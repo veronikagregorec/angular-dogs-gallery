@@ -1,11 +1,11 @@
 import { Component, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-scrollToTop',
-  templateUrl: './scrollToTop.component.html',
-  styleUrls: ['./scrollToTop.component.css']
+  selector: 'app-scroll-to-top-button',
+  templateUrl: './scrollToTopButton.component.html',
+  styleUrls: ['./scrollToTopButton.component.css']
 })
-export class ScrollToTopComponent{
+export class ScrollToTopButtonComponent{
 
   isShow: boolean = false;
   topPosToStartShowing = 150;
@@ -29,5 +29,4 @@ export class ScrollToTopComponent{
       behavior: 'smooth' 
     });
   }
-
 }
