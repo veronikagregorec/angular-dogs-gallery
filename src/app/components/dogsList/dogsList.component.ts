@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { HttpService } from 'src/app/service/http.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { HttpService } from 'src/app/service/http.service';
   templateUrl: './dogsList.component.html',
   styleUrls: ['./dogsList.component.css']
 })
-export class DogsListComponent implements AfterViewInit {
+export class DogsListComponent implements OnInit {
 
   constructor(private httpService: HttpService) {}
 
@@ -14,7 +14,9 @@ export class DogsListComponent implements AfterViewInit {
   
   onFetchDogsFromApi(): any {
     this.httpService.fetchDogsFromApi().subscribe(
-      (response) => this.doggos = [...this.doggos, ...response]
+      (response:any) => {
+        this.doggos = response
+      }
     );
   }
 
@@ -22,7 +24,8 @@ export class DogsListComponent implements AfterViewInit {
     this.onFetchDogsFromApi();
   }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.onFetchDogsFromApi();
+    this.doggos.next();
   }
 }

@@ -1,6 +1,6 @@
 .wrap {
     position: relative;
-    height: 30vh;
+    height: 25vh;
     background-color: var(--lightPurple);
     color: var(--black);
     display: flex;
