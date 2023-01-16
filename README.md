@@ -1,4 +1,10 @@
-# AngularDogsGallery
+# Angular Dogs Gallery
+
+Project for IP21 academy.
+
+![](screenshots/front.png)
+
+![](screenshots/background.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
 
