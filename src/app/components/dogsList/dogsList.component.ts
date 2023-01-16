@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
 import { HttpService } from 'src/app/service/http.service';
 import { BehaviorSubject } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -8,11 +8,12 @@ import { take } from 'rxjs/operators';
   templateUrl: './dogsList.component.html',
   styleUrls: ['./dogsList.component.css']
 })
-export class DogsListComponent implements OnInit {
+export class DogsListComponent implements OnInit, OnDestroy {
 
   constructor(private httpService: HttpService) {}
 
   doggos: any = new BehaviorSubject([]);
+  dogsSub: any;
   
   onFetchDogsFromApi(): any {
     this.httpService.fetchDogsFromApi().pipe(take(1)).subscribe()
@@ -23,7 +24,7 @@ export class DogsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.httpService.DOGS$.subscribe(
+    this.dogsSub = this.httpService.DOGS$.subscribe(
       (newDogs:any) => {
         this.doggos = newDogs
       }
@@ -32,5 +33,9 @@ export class DogsListComponent implements OnInit {
 
   trackDog(index : number, dog: any) {
     return dog ? dog.id : undefined;
+  }
+
+  ngOnDestroy() {
+    this.dogsSub.unsubscribe();
   }
 }
