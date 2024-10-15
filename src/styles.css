@@ -1,0 +1,38 @@
+:root {
+    --lightPurple: #ffe6f9;
+    --purple: #400D51;
+    --darkPink: #D800A6;
+    --white: #fff;
+    --black: #000;
+}
+
+::selection {
+    background-color: var(--purple);
+    color: var(--lightPurple);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: var(--purple) var(--lightPurple);
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--lightPurple);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--purple);
+    border: 3px solid var(--lightPurple);
+}
+
+html {
+    scroll-behavior: smooth;
+}

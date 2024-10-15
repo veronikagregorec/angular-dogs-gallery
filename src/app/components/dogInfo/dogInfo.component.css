@@ -1,0 +1,151 @@
+#lightBoxBg {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--purple), var(--darkPink));
+    background-attachment: fixed;
+    margin-top: 0;
+    min-height: 60vh;
+}
+
+#lightBoxBg.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#wrapInside {
+    color: var(--lightPurple);
+    margin-top: -50px;
+}
+
+#header {
+    color: var(--lightPurple);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#lightBoxImage {
+    margin-top: 40px;
+    max-width: 550px;
+    max-height: 500px;
+    border: 4px solid var(--lightPurple);
+    animation: modal 1s ease;
+}
+
+@keyframes modal {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.lightBoxImageCenter{
+    display: grid;
+    justify-content: center;
+}
+
+buttton{
+    margin-top: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-items: flex-start;
+    flex-direction: row;
+    line-height: 1;
+    animation: arrow-left 1s ease-in-out;
+}
+
+@keyframes arrow-left {
+    0%{
+        transform: translateX(5%);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+span {
+    margin-left: 5px;
+    animation: span 1s ease;
+}
+
+@keyframes span {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+#breadGroup::before {
+    content: "Bread group: ";
+    color: var(--black);
+}
+
+#lifeSpan::before {
+    content: "Life span: ";
+    color: var(--black);
+}
+
+#bredFor::before {
+    content: "Bred for: ";
+    color: var(--black);
+}
+
+#temperament::before {
+    content: "Temperament: ";
+    color: var(--black);
+}
+
+@media screen and (max-width: 1024px) {
+
+    #lightBoxBg {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+    #lightBoxImage {
+        max-width: 470px;
+        max-height: 400px;
+    }
+
+    #wrapInside {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    
+    #wrapInside {
+        width: 90%;
+        margin: auto;
+    }
+
+    #lightBoxBg {
+        padding-bottom: 80px;
+    }
+
+    #lightBoxImage {
+        max-width: 430px;
+        max-height: 350px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+   
+    #lightBoxImage {
+        max-width: 320px;
+        max-height: 250px;
+    }
+}

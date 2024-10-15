@@ -1,0 +1,10 @@
+<div class="container">
+    <div id="dogs">
+        <div *ngFor="let item of doggos; trackBy:trackDog" >
+            <p style="display: none;">{{item.id}}</p>
+            <img src={{item.image.url}} class="zoom-img" routerLink="/home/{{item.id}}" />
+        </div>
+    </div>
+
+    <button class="btn" (click)="getDogs()">Get dogs</button>
+</div>

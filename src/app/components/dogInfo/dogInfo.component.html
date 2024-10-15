@@ -1,0 +1,16 @@
+<div id="lightBoxBg">
+    <div id="wrapInside">
+        <div *ngIf="(pes | keyvalue)?.length">
+            <p style="display:none">{{pes.id}}</p>
+            <h2 id="header">{{pes.name}}</h2>
+            <p id="breadGroup">{{pes.breed_group}}</p> 
+            <p id="lifeSpan">{{pes.life_span}}</p>
+            <p id="bredFor">{{pes.bred_for}}</p>
+            <p id="temperament">{{pes.temperament}}</p>
+            <div class="lightBoxImageCenter">
+                <img src={{pes.image.url}} id="lightBoxImage" />
+                <buttton routerLink="/home"><i class="fa-solid fa-arrow-left"></i><span>Back to list</span></buttton>
+            </div>
+        </div>
+    </div>
+</div>
