@@ -1,6 +1,6 @@
 # Angular Dogs Gallery
 
-Project for IP21 academy.
+Angular dogs gallery with RxJS.
 
 ## Browser Compatibility
 
